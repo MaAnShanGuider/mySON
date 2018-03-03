@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+html,body{ height:100%;width:100%;background: #eee;}
+* {margin:0;padding:0;}
+#app {
+	height: 100%;
+	position: relative;
+	top:0;
+	left:0;
+	width: 100%;
+	overflow: scroll;
+}

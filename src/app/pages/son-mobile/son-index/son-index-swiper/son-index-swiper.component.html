@@ -1,0 +1,12 @@
+<div id="son-swiper">
+	<ul appSonSwiper class="son-swiper-banner" >
+		<li *ngFor='let item of swiperOption.data;let i = index' [ngStyle]='{width: clientWidth}' (touchstart)='handleTouchStart($event)'  (touchend)='handleTouchEnd($event)'>
+			<img [src]="item.full_pic" alt="">
+		</li>
+	</ul>
+	<ul class="son-swiper-list">
+		<li *ngFor='let item of swiperOption.data;let i = index' >
+			<i  [ngClass]='{now: getClass(i)}'></i>
+		</li>
+	</ul>
+</div>

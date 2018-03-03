@@ -1,0 +1,39 @@
+#tarbar {
+	height: 44px;
+	width: 100%;
+	background: #333;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #ccc;
+	i {
+		display: block;
+		width: 44px;
+		height: 44px;
+		text-align: center;
+		&::before {
+			font-size: 18px;
+			line-height: 44px;
+		}
+	}
+	div {
+		height: 30px;
+		width: 122px;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		font: 12px/26px '';
+		display: flex;
+		justify-content: flex-start;
+		span {
+			display: block;
+			text-align: center;
+			width: 50%;
+			outline: none;
+			&.activeLinkClass {
+				background: #ccc;
+				color: #333;
+			}
+		}
+	}
+
+}

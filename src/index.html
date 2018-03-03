@@ -7,8 +7,14 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="./assets/font/iconfont.css">
 </head>
 <body>
   <app-root></app-root>
 </body>
+<script>
+	window.onload = function() {
+		document.documentElement.style.fontSize = document.documentElement.clientWidth / 375 * 100 + 'px';
+	}
+</script>
 </html>

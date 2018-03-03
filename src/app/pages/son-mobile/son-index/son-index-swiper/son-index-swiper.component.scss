@@ -1,0 +1,57 @@
+@mixin width($width:50) {
+  width: $width * 100%;
+}
+#son-swiper {
+	@include width(1);
+	height: 184px;
+	overflow: hidden;
+	position: relative;
+	top: 0;
+	left: 0;
+	li {
+		list-style: none;
+		float: left;
+
+	}
+	.son-swiper-banner {
+		height: 100%;
+		overflow: hidden;
+		@include width(7);
+		margin-left: -100%;
+		li {
+			height: 100%;
+			img {
+				display: block;
+				height: 100%;
+				width: 100%;
+			}
+		}
+	}
+	.son-swiper-list {
+		position: absolute;
+		bottom: 8px;
+		left: 0;
+		right: 0;
+		margin: auto;
+		width: 80px;
+		li {
+			width: 16px;
+			height: 6px;
+			float: left;
+
+			i {
+				display: block;
+				margin: auto;
+				width: 6px;
+				height: 6px;
+				background: white;
+				border: 1px solid white;
+				border-radius: 50%;
+				&.now {
+					background: #ffc571
+				}
+			}
+
+		}
+	}
+}
