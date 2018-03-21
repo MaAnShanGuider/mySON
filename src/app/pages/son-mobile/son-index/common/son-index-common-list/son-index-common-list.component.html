@@ -1,0 +1,13 @@
+<div class="son-index-common-list">
+	<h3>{{title}}</h3>
+	<div class="list-scroll">
+		<ul #ul_list>
+			<li *ngFor='let item of data' #list [ngClass]="{shandow:hasClass}">
+				<img [src]="item.product_image" alt="">
+				<p>{{item.title}}</p>
+				<span>{{item.sale_price}}</span>
+			</li>
+		</ul>
+	</div>
+	
+</div>

@@ -1,0 +1,51 @@
+.son-index-common-list {
+	width: auto;
+	background: white;
+	height: 168px;
+	padding-left: 17px;
+	margin-top: 10px;
+	h3 {
+		font: 14px /42px '';
+		color: #666;
+		padding-top: 5px;
+	}
+	.list-scroll {
+		width: auto;
+		overflow-x: scroll;
+		&::-webkit-scrollbar {
+			display: none;
+		}
+		ul {
+			height: 121px;
+			li {
+				float:left;
+				width: 100px;
+				height: 106px;
+				margin-right: 28px;
+				color: #333;
+				text-indent: 5px;
+				img {
+					display: block;
+					width: 100px;
+					height: 59px;
+
+				}
+				&.shandow {
+					box-shadow: 2px 2px 3px  rgba(0,0,0,.3);
+				}
+				p {
+					margin-top: 5px;
+					font: 12px /16px '';
+					width: 80%;
+					text-overflow: ellipsis;
+					overflow: hidden;
+					white-space: nowrap;
+				}
+				span {
+					display: block;
+					font: 9px / 24px '';
+				}
+			}
+		}
+	}
+}

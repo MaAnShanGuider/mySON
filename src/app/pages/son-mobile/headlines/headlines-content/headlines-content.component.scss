@@ -1,0 +1,28 @@
+#headlines-content {
+	width: 100%;
+	overflow: hidden;
+	.headlines-content-tarbar {
+		list-style: none;
+		width: 125%;
+		height: 35px;
+		li {
+			float: left;
+			width: 20%;
+			text-align: center;
+			height: 35px;
+			font: 12px/35px '';
+			span {
+				display: block;
+				width: 36px;
+				margin: auto;
+				color: #333;
+				height: 35px;
+				&.boom {
+					height: 35px;
+					border-bottom: 2px solid orange;
+					color: orange;
+				}
+			}
+		}
+	}
+}

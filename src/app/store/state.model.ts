@@ -1,6 +1,6 @@
-export class testState {
+export class indexState {
 	constructor(
-		public test: string
+		public data: any,
 		) {}
 }
 
@@ -9,11 +9,28 @@ export class routerState {
 		public routerExact: boolean
 		) {}
 }
-export type State = | testState | routerState;
-export const initialTestState: State = {
-	test: 'boom'
+class headlinesData {
+	public num: number;
+	public headlines: Array<object>
+
+}
+export class headLinesState {
+	constructor(
+		public data: headlinesData,
+		public nowPage: number
+		) {}
 }
 
-export const initialRouterState: State = {
+export type State =  indexState | routerState | headLinesState;
+export const initialIndexState: indexState = {
+	data: {},
+}
+
+export const initialRouterState: routerState = {
 	routerExact: true
+}
+
+export const initialHeadLines: headLinesState = {
+	data: {num: 0, headlines: []},
+	nowPage: 1,
 }

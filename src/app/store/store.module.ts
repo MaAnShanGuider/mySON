@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
-import { sumReducer,routerReducer } from './reducer.module';
+import { indexReducer,routerReducer,headLinesReducer } from './reducer.module';
 
 
 @NgModule({
 	imports: [
-		StoreModule.forRoot({tesr: sumReducer, routerChange: routerReducer})
+		StoreModule.forRoot({
+			index: indexReducer, 
+			routerChange: routerReducer,
+			headLines:headLinesReducer
+		})
 	],
 	providers: [],
 	exports: [StoreModule]

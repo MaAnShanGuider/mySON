@@ -1,0 +1,13 @@
+<ul class="headlines-content-child"  (click)='handleClick($event)' #headlinesChild>
+	<li *ngFor="let item of headLines.data.headlines">
+		<div class="headlines-content-child-left">
+			<img [src]="item.cover.url" alt="">
+		</div>
+		<dl class="headlines-content-child-right">
+			<dt>{{item.title}}</dt>
+			<dd>
+				<i>#{{item.section.name}}</i><span>{{item.created_at_timestamp * 1000 | date:'yyyy-MM-dd'}}</span>
+			</dd>
+		</dl>
+	</li>
+</ul>

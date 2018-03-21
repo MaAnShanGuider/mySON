@@ -1,0 +1,6 @@
+<ul class="son-index-sort">
+	<li *ngFor="let item of data">
+		<i   [ngClass]='["iconfont", item.icon]' [ngStyle]="{background: item.color}"></i>
+		<span>{{item.title}}</span>
+	</li>
+</ul>

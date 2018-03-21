@@ -23,7 +23,7 @@ export class SonPeripheralComponent implements OnInit {
 	ngOnDestroy() {
 		// 将routerExact赋值为true
 		this.store.dispatch({
-			type: types.ROUTER_LEAVEL_PERIPHERAL
+			type: types.ROUTER_LEAVE_PERIPHERAL
 		});
 	}
 

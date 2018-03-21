@@ -1,0 +1,8 @@
+<div id="headlines-content">
+	<ul class="headlines-content-tarbar" [ngStyle]="{transform: 'translateX('+ nowOffsetX + 'px)'}" (touchstart)='handleTouchStart($event)' (touchmove)='handleTouchMove($event)'>
+		<li *ngFor="let item of title;let i = index" ><span [ngClass] = "{boom: getClassFromNowTarget(i)}" (click)='handleClickChangeTarget(i)'>{{item}}</span></li>
+	</ul>
+	<div class="headlines-content-content">
+		<app-headlines-content-child></app-headlines-content-child>
+	</div>
+</div>

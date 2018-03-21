@@ -1,44 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-// 数据源类
+import { Observable, Subscription } from 'rxjs';
+import { indexState } from '@app/store/state.model'
+import { Store, select } from '@ngrx/store';
+import * as types from '@app/store/actions.module';
 
-// data类
-export class SwiperOption {
-	data:Array<object>
-	constructor() {}
-}
 @Component({
   selector: 'app-son-index-swiper',
   templateUrl: './son-index-swiper.component.html',
   styleUrls: ['./son-index-swiper.component.scss'],
-  providers:[SwiperOption]
+  providers:[]
 })
-export class SonIndexSwiperComponent implements OnInit {
-	clientWidth: string;
-	now: number;
+export class SonIndexSwiperComponent implements OnInit, OnDestroy {
+	data;
+	indexState$: Observable<indexState>;
+	swiperHttpSubscription: Subscription;
+	swiperSubscription: Subscription;
 	constructor(
-		private swiperOption:SwiperOption,
-		private http: HttpClient
-		 ) {}
+		private http: HttpClient,
+		private render: Renderer2,
+		private store : Store<indexState>
+		 ) {
+		this.indexState$ = store.pipe(select('index'));
+	}
 
 	ngOnInit() {
-		this.http.get('/api/store.json?_=1520044349542')
+		let nowDate = new Date().getTime() + '';
+		this.swiperHttpSubscription = this.http.get('/api/store.json',{params:{_:nowDate}})
 				.subscribe((res:any) => {
-					this.swiperOption.data = res.store.promotions;
+					this.store.dispatch({
+						type: types.INDEX_GET,
+						payload: res.store
+					});
 				});
-		this.clientWidth = screen.width + 'px';
-		this.now = 0;
+		this.swiperSubscription = this.indexState$.subscribe(state => {
+			this.data = state.data.promotions;
+		});
 	}
-	handleTouchStart(event) {
-		console.log(event);
-	}
-	handleTouchEnd(event) {
-		console.log(event);
-	}
-
-	getClass(num: number): boolean {
-		if (num == this.now) {
-			return true;
-		} else return false;
+	ngOnDestroy() {
+		this.swiperHttpSubscription.unsubscribe();
+		this.swiperSubscription.unsubscribe();
 	}
 }
